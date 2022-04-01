@@ -1,0 +1,27 @@
+{
+  "name": "otp-encryption-decryption-tools",
+  "version": "0.0.1",
+  "description": "Small tools and functions for encrypting and decrypting messages with OTPs - One-time pads. ",
+  "main": "./src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eklem/otp-encryption-decryption-tools.git"
+  },
+  "keywords": [
+    "otp",
+    "one-time-pad",
+    "encryption",
+    "decryption",
+    "plaincode",
+    "code-table"
+  ],
+  "author": "Espen Klem",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/eklem/otp-encryption-decryption-tools/issues"
+  },
+  "homepage": "https://github.com/eklem/otp-encryption-decryption-tools#readme"
+}
