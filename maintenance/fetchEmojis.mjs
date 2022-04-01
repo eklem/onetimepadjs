@@ -5,7 +5,7 @@ fetch('https://unicode.org/emoji/charts-14.0/emoji-ordering.txt')
   .then(res => res.text())
   .then(content => {
     console.log('Emojis fetched from URL')
-    fs.writeFile('./emojis.txt', content, err => {
+    fs.writeFile('./maintenance/emojis.txt', content, err => {
       if (err) {
         console.error('Error writing file: ' + err)
       }

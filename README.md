@@ -8,5 +8,5 @@ Will be core functionality for [otp-encryption-decryption-toy](https://github.co
 If unicode emojis are updated (to i.e. v.15)
 
 ```console
-node ./maintenance/fetchEmojis.json && node ./maintenance/createEmojiCookbook.mjs
+node ./maintenance/fetchEmojis.mjs && node ./maintenance/createEmojiCodebook.mjs
 ```

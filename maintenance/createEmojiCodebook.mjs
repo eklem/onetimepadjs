@@ -1,7 +1,7 @@
 import { extract, emojis } from 'words-n-numbers'
 import fs from 'fs'
 
-fs.readFile('./emojis.txt', 'utf8', (err, rawEmojis) => {
+fs.readFile('./maintenance/emojis.txt', 'utf8', (err, rawEmojis) => {
   if (err) {
     console.error(err)
     return
@@ -14,7 +14,7 @@ fs.readFile('./emojis.txt', 'utf8', (err, rawEmojis) => {
   })
   emojisCodebook = JSON.stringify(emojisCodebook, null, 2)
 
-  fs.writeFile('./emojis.json', emojisCodebook, err => {
+  fs.writeFile('./maintenance/emojis.json', emojisCodebook, err => {
     if (err) {
       console.error('Error writing file: ' + err)
     }
