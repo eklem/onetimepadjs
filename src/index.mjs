@@ -1,5 +1,5 @@
 import { codebook } from './codebook-emojis.mjs'
-import { eng } from './conversion-table-eng.mjs'
+import { eng } from './conversiontable-eng.mjs'
 
 // ### Function: Text to plaincode
 function textToPlaincode (text, conversion, codebook) {
