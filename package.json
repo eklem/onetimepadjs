@@ -13,7 +13,8 @@
   "devDependencies": {
     "batr": "^2.1.3",
     "node-fetch": "^3.2.3",
-    "words-n-numbers": "^7.1.0"
+    "words-n-numbers": "^7.1.0",
+    "rgi-emoji-regex-pattern": "^1.3.0"
   },
   "keywords": [
     "otp",
