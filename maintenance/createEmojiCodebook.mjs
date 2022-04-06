@@ -1,24 +1,14 @@
-import { extract, emojis } from 'words-n-numbers'
+import { encryptabelCharactersRegex } from './regex.mjs'
 import fs from 'fs'
 
-fs.readFile('./maintenance/emojis.txt', 'utf8', (err, rawEmojis) => {
-  if (err) {
-    console.error(err)
-    return
-  }
-  const emojisArr = extract(rawEmojis, { regex: emojis, toLowercase: true })
-  let emojisCodebook = emojisArr.map((element, index) => {
-    index = String(index).padStart(5, '0')
-    element = { txt: element, plaincode: index }
-    return element
-  })
-  emojisCodebook = JSON.stringify(emojisCodebook, null, 2)
+const emojisTxt = fs.readFileSync('./emojis.txt', 'utf8').toString().trim()
+const regex = new RegExp(encryptabelCharactersRegex, 'g')
 
-  fs.writeFile('./maintenance/emojis.json', emojisCodebook, err => {
-    if (err) {
-      console.error('Error writing file: ' + err)
-    }
-    // file written successfully
-    console.log('Emojis JSON written')
-  })
+const emojisArr = emojisTxt.match(regex)
+let emojisCodebook = emojisArr.map((element, index) => {
+  index = String(index).padStart(5, '0')
+  return { txt: element, plaincode: index }
 })
+emojisCodebook = JSON.stringify(emojisCodebook, null, 2)
+
+fs.writeFileSync('./codebook-emojis.json', emojisCodebook)
