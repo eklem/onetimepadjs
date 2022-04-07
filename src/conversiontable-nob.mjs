@@ -1,5 +1,5 @@
 const nob = {
-  plaincodeRegex: '0\\d{4}|[1-5]|[60-89]{2}',
+  plaincodeRegex: '0\\d{4}|[1-5]|[60-89]{2}|[90]{3}|[91-99]{2}',
   table: [
     { unicode: 'e', plaincode: '1' },
     { unicode: 'r', plaincode: '2' },

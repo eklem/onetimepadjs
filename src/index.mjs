@@ -9,17 +9,21 @@ const codebook = codebookRaw.default
 function textToPlaincode (text, conversion, codebook) {
   // Joining regular conversion table and codebook
   conversion.table = [...conversion.table, ...codebook]
-  console.log(conversion.table)
+  text = text.toLowerCase()
 
   // split into array of characters
   const regex = new RegExp(encryptabelCharactersRegex, 'gu')
   const textArr = text.match(regex)
-  console.log(textArr)
+  console.log('textArr: ' + textArr)
 
   // convert text to plaincode
   const plaincode = textArr.map((character) => {
     const letterObj = conversion.table.find(obj => obj.unicode === character)
-    return letterObj.plaincode
+    try {
+      return letterObj.plaincode
+    } catch (error) {
+      return ' '
+    }
   })
 
   return plaincode.join('')
@@ -30,16 +34,22 @@ function plaincodeToText (plaincode, conversion, codebook) {
   // Joining regular conversion table and codebook
   conversion.table = [...conversion.table, ...codebook]
 
+  console.log(plaincode)
+  console.log(conversion.plaincodeRegex)
   // finding via regex: plaincode enteties in plaincode string
-  const regex = new RegExp(conversion.plaincodeRegex, 'gu')
+  const regex = new RegExp(conversion.plaincodeRegex, 'gui')
+  console.log(regex)
   const plaincodeArr = plaincode.match(regex)
   console.log(plaincodeArr)
 
   // convert plaincode to text
   const text = plaincodeArr.map((plaincode) => {
     const letterObj = conversion.table.find(obj => obj.plaincode === plaincode)
+    console.log(letterObj.plaincode)
+    console.log(letterObj.unicode + '\n')
     return letterObj.unicode
   })
+  console.log(text)
   return text.join('')
 }
 
@@ -53,8 +63,17 @@ function createOnetimePad (length) {
 }
 
 const plaincode = '6626969599000009977573696394'
-const txt = 'hello 😀 world!'
-console.log(txt)
+const txt = 'Hello 😀 world!'.toLowerCase()
+
+const plaincodeConverted = textToPlaincode(txt, eng, codebook)
+console.log(plaincodeConverted + ' ===\n' + plaincode + ' ?')
+
+if (plaincodeConverted === plaincode) {
+  console.log('textToPlaincode works!')
+} else {
+  console.log('textToPlaincode doesn\'t work!')
+}
+
 const textConverted = plaincodeToText(plaincode, eng, codebook)
 console.log('converting plaincode: \'' + plaincode + '\' to text: \'' + textConverted + '\'')
 
@@ -62,15 +81,6 @@ if (textConverted === txt) {
   console.log('plaincodeToText works!')
 } else {
   console.log('plaincodeToText doesn\'t work!')
-}
-
-const plaincodeConverted = textToPlaincode(txt, eng, codebook)
-console.log(plaincodeConverted + '\n' + plaincode)
-
-if (plaincodeConverted === plaincode) {
-  console.log('textToPlaincode works!')
-} else {
-  console.log('textToPlaincode doesn\'t work!')
 }
 
 const otp = createOnetimePad(256)

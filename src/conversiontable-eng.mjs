@@ -1,5 +1,5 @@
 const eng = {
-  plaincodeRegex: '0\\d{4}|[1-5]|[60-89]{2}',
+  plaincodeRegex: '0\\d{4}|[1-5]|[6-8]{2}|[91-99]{2}',
   table: [
     { unicode: 'a', plaincode: '1' },
     { unicode: 'e', plaincode: '2' },
