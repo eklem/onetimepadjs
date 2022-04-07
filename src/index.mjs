@@ -1,6 +1,7 @@
 import { codebookRaw } from './codebook-emojis.mjs'
+import { emojiRegex } from './regex-emojis.mjs'
 import { eng } from './conversiontable-eng.mjs'
-import { emojiRegex } from './emoji-regex.mjs'
+import { nob } from './conversiontable-nob.mjs'
 const codebook = codebookRaw.default
 
 // console.log(codebook)
@@ -10,7 +11,6 @@ function textToPlaincode (text, conversion, codebook) {
   // Joining regular conversion table and codebook
   conversion.table = [...conversion.table, ...codebook]
   text = text.toLowerCase()
-  console.log(text)
 
   // split into array of characters
   let regex = emojiRegex + '|' + conversion.textRegex
@@ -59,32 +59,26 @@ function createOnetimePad (length) {
   return otp
 }
 
-const plaincode = '6626969599000000342299997757369639990190290394'
-const txt = 'Hello 😀🇿🇼  world 123!'.toLowerCase()
+// ### Function: Check one-time pad >= plaincode
+function checkLength (message, otp) {
+  let tooLong = false
+  const messageLength = message.length
+  const otpLength = otp.length
+  if (messageLength > otpLength) {
+    tooLong = true
+  }
 
-const plaincodeConverted = textToPlaincode(txt, eng, codebook)
-console.log(plaincodeConverted + ' ===\n' + plaincode + ' ?')
-
-if (plaincodeConverted === plaincode) {
-  console.log('textToPlaincode works!')
-} else {
-  console.log('textToPlaincode doesn\'t work!')
+  return { messageLength: messageLength, otpLength: otpLength, tooLong: tooLong }
 }
 
-const textConverted = plaincodeToText(plaincode, eng, codebook)
-console.log('converting plaincode: \'' + plaincode + '\' to text: \'' + textConverted + '\'')
-
-if (textConverted === txt) {
-  console.log('plaincodeToText works!')
-} else {
-  console.log('plaincodeToText doesn\'t work!')
+// ### Function: Encrypt
+function encryptPlaincode (plaincode, otp) {
+  // nothing much yet
 }
 
-const otp = createOnetimePad(256)
-console.log(otp)
-
-if (otp.length === 256) {
-  console.log('createOnetimePad works!')
-} else {
-  console.log('createOnetimePad doesn\'t work!')
+// ### Function: Decrypt
+function decryptEncrypted (message, otp) {
+  // nothing much yet
 }
+
+export { textToPlaincode, plaincodeToText, createOnetimePad, eng, nob, codebook, checkLength, encryptPlaincode, decryptEncrypted }
