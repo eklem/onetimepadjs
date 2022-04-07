@@ -1,5 +1,6 @@
 import { codebookRaw } from './codebook-emojis.mjs'
 import { eng } from './conversiontable-eng.mjs'
+import { encryptabelCharactersRegex } from './unicodeRegex.mjs'
 const codebook = codebookRaw.default
 
 // console.log(codebook)
@@ -8,15 +9,16 @@ const codebook = codebookRaw.default
 function textToPlaincode (text, conversion, codebook) {
   // Joining regular conversion table and codebook
   conversion.table = [...conversion.table, ...codebook]
+  console.log(conversion.table)
 
   // split into array of characters
-  const regex = new RegExp('.', 'gu')
+  const regex = new RegExp(encryptabelCharactersRegex, 'gu')
   const textArr = text.match(regex)
+  console.log(textArr)
 
   // convert text to plaincode
   const plaincode = textArr.map((character) => {
     const letterObj = conversion.table.find(obj => obj.unicode === character)
-    console.log(letterObj)
     return letterObj.plaincode
   })
 
@@ -29,7 +31,7 @@ function plaincodeToText (plaincode, conversion, codebook) {
   conversion.table = [...conversion.table, ...codebook]
 
   // finding via regex: plaincode enteties in plaincode string
-  const regex = new RegExp(conversion.regex, 'gu')
+  const regex = new RegExp(conversion.plaincodeRegex, 'gu')
   const plaincodeArr = plaincode.match(regex)
   console.log(plaincodeArr)
 
@@ -52,6 +54,7 @@ function createOnetimePad (length) {
 
 const plaincode = '6626969599000009977573696394'
 const txt = 'hello 😀 world!'
+console.log(txt)
 const textConverted = plaincodeToText(plaincode, eng, codebook)
 console.log('converting plaincode: \'' + plaincode + '\' to text: \'' + textConverted + '\'')
 
