@@ -4,4 +4,4 @@ const input = fs.readFileSync('./templatefile-regex.mjs', 'utf8').toString().tri
 const pattern = fs.readFileSync('../node_modules/rgi-emoji-regex-pattern/dist/latest/javascript.txt', 'utf8').toString().trim()
 const output = input.replace('<% pattern %>', pattern) + '\n'
 
-fs.writeFileSync('../src/unicodeRegex.mjs', output)
+fs.writeFileSync('../src/emoji-regex.mjs', output)

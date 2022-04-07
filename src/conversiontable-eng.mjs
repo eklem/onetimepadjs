@@ -1,5 +1,6 @@
 const eng = {
-  plaincodeRegex: '0\\d{4}|[1-5]|[6-8]{2}|[91-99]{2}',
+  plaincodeRegex: '0\\d{4}|[1-5]|(90[0-9]{1})|(6[0-9]{1})|(7[0-9]{1})|(8[0-9]{1})|(9[1-9]{1})',
+  textRegex: '[a-z0-9\\s]|[!]',
   table: [
     { unicode: 'a', plaincode: '1' },
     { unicode: 'e', plaincode: '2' },
@@ -54,4 +55,5 @@ const eng = {
     { unicode: ' ', plaincode: '99' }
   ]
 }
+
 export { eng }

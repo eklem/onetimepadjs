@@ -1,5 +1,5 @@
 const nob = {
-  plaincodeRegex: '0\\d{4}|[1-5]|[60-89]{2}|[90]{3}|[91-99]{2}',
+  plaincodeRegex: '0\\d{4}|[1-5]|(90[0-9]{1})|(6[0-9]{1})|(7[0-9]{1})|(8[0-9]{1})|(9[1-9]{1})',
   table: [
     { unicode: 'e', plaincode: '1' },
     { unicode: 'r', plaincode: '2' },
@@ -57,4 +57,5 @@ const nob = {
     { unicode: ' ', plaincode: '99' }
   ]
 }
+
 export { nob }

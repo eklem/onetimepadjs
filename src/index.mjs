@@ -1,6 +1,6 @@
 import { codebookRaw } from './codebook-emojis.mjs'
 import { eng } from './conversiontable-eng.mjs'
-import { encryptabelCharactersRegex } from './unicodeRegex.mjs'
+import { emojiRegex } from './emoji-regex.mjs'
 const codebook = codebookRaw.default
 
 // console.log(codebook)
@@ -13,7 +13,8 @@ function textToPlaincode (text, conversion, codebook) {
   console.log(text)
 
   // split into array of characters
-  const regex = new RegExp(encryptabelCharactersRegex, 'g')
+  let regex = emojiRegex + '|' + conversion.textRegex
+  regex = new RegExp(regex, 'g')
   const textArr = text.match(regex)
   console.log('textArr: ' + textArr)
 
@@ -38,17 +39,14 @@ function plaincodeToText (plaincode, conversion, codebook) {
   console.log(plaincode)
   console.log(conversion.plaincodeRegex)
   // finding via regex: plaincode enteties in plaincode string
-  const regex = new RegExp(conversion.plaincodeRegex, 'gu')
+  const regex = new RegExp(conversion.plaincodeRegex, 'g')
   const plaincodeArr = plaincode.match(regex)
 
   // convert plaincode to text
   const text = plaincodeArr.map((plaincode) => {
     const letterObj = conversion.table.find(obj => obj.plaincode === plaincode)
-    console.log(letterObj.plaincode)
-    console.log(letterObj.unicode + '\n')
     return letterObj.unicode
   })
-  console.log(text)
   return text.join('')
 }
 
@@ -61,8 +59,8 @@ function createOnetimePad (length) {
   return otp
 }
 
-const plaincode = '66269695990000003422999977573696394'
-const txt = 'Hello 😀🇿🇼  world!'.toLowerCase()
+const plaincode = '6626969599000000342299997757369639990190290394'
+const txt = 'Hello 😀🇿🇼  world 123!'.toLowerCase()
 
 const plaincodeConverted = textToPlaincode(txt, eng, codebook)
 console.log(plaincodeConverted + ' ===\n' + plaincode + ' ?')
