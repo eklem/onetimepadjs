@@ -1,4 +1,4 @@
-import { emojiRegex } from '../src/regex.mjs'
+import { emojiRegex } from '../src/regex-emojis.mjs'
 import fs from 'fs'
 
 const emojisTxt = fs.readFileSync('./emojis.txt', 'utf8').toString().trim()
