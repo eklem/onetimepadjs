@@ -1,7 +1,7 @@
 import { textToPlaincode, plaincodeToText, createOnetimePad, eng, codebook, checkLength } from '../src/index.mjs'
 
-const plaincode = '6626969599000000342299997757369639990190290394'
-const txt = 'Hello 😀🇿🇼  world 123!'
+const plaincode = '66269695990225303162000000342299997757369639990190290394'
+const txt = 'Hello 👨‍👩‍👦‍👦🏳️‍🌈😀🇿🇼  world 123!'
 
 console.log(txt)
 
