@@ -4,8 +4,6 @@ import { eng } from './conversiontable-eng.mjs'
 import { nob } from './conversiontable-nob.mjs'
 const codebook = codebookRaw.default
 
-// console.log(codebook)
-
 // ### Function: Text to plaincode
 function textToPlaincode (text, conversion, codebook) {
   // Joining regular conversion table and codebook
@@ -16,7 +14,6 @@ function textToPlaincode (text, conversion, codebook) {
   let regex = emojiRegex + '|' + conversion.textRegex
   regex = new RegExp(regex, 'g')
   const textArr = text.match(regex)
-  console.log('textArr: ' + textArr)
 
   // convert text to plaincode
   const plaincode = textArr.map((character) => {
@@ -27,7 +24,6 @@ function textToPlaincode (text, conversion, codebook) {
       return ' '
     }
   })
-
   return plaincode.join('')
 }
 
