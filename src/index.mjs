@@ -1,5 +1,8 @@
-import { codebook } from './codebook-emojis.mjs'
+import { codebookRaw } from './codebook-emojis.mjs'
 import { eng } from './conversiontable-eng.mjs'
+const codebook = codebookRaw.default
+
+// console.log(codebook)
 
 // ### Function: Text to plaincode
 function textToPlaincode (text, conversion, codebook) {
@@ -12,7 +15,8 @@ function textToPlaincode (text, conversion, codebook) {
 
   // convert text to plaincode
   const plaincode = textArr.map((character) => {
-    const letterObj = conversion.table.find(obj => obj.txt === character)
+    const letterObj = conversion.table.find(obj => obj.unicode === character)
+    console.log(letterObj)
     return letterObj.plaincode
   })
 
@@ -32,7 +36,7 @@ function plaincodeToText (plaincode, conversion, codebook) {
   // convert plaincode to text
   const text = plaincodeArr.map((plaincode) => {
     const letterObj = conversion.table.find(obj => obj.plaincode === plaincode)
-    return letterObj.txt
+    return letterObj.unicode
   })
   return text.join('')
 }
