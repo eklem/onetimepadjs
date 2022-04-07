@@ -10,9 +10,10 @@ function textToPlaincode (text, conversion, codebook) {
   // Joining regular conversion table and codebook
   conversion.table = [...conversion.table, ...codebook]
   text = text.toLowerCase()
+  console.log(text)
 
   // split into array of characters
-  const regex = new RegExp(encryptabelCharactersRegex, 'gu')
+  const regex = new RegExp(encryptabelCharactersRegex, 'g')
   const textArr = text.match(regex)
   console.log('textArr: ' + textArr)
 
@@ -37,10 +38,8 @@ function plaincodeToText (plaincode, conversion, codebook) {
   console.log(plaincode)
   console.log(conversion.plaincodeRegex)
   // finding via regex: plaincode enteties in plaincode string
-  const regex = new RegExp(conversion.plaincodeRegex, 'gui')
-  console.log(regex)
+  const regex = new RegExp(conversion.plaincodeRegex, 'gu')
   const plaincodeArr = plaincode.match(regex)
-  console.log(plaincodeArr)
 
   // convert plaincode to text
   const text = plaincodeArr.map((plaincode) => {
@@ -62,8 +61,8 @@ function createOnetimePad (length) {
   return otp
 }
 
-const plaincode = '6626969599000009977573696394'
-const txt = 'Hello 😀 world!'.toLowerCase()
+const plaincode = '66269695990000003422999977573696394'
+const txt = 'Hello 😀🇿🇼  world!'.toLowerCase()
 
 const plaincodeConverted = textToPlaincode(txt, eng, codebook)
 console.log(plaincodeConverted + ' ===\n' + plaincode + ' ?')
