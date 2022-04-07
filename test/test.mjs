@@ -1,12 +1,12 @@
-import { textToPlaincode, plaincodeToText, createOnetimePad, eng, codebook, checkLength } from '../src/index.mjs'
+import { textToPlaincode, plaincodeToText, createOnetimePad, nob, codebook, checkLength } from '../src/index.mjs'
 
-const plaincode = '66269695990225303162000000342299997757369639990190290394'
-const txt = 'Hello 👨‍👩‍👦‍👦🏳️‍🌈😀🇿🇼  world 123!'
+const plaincode = '72162626399022530316200000034229999806326264999019029039979767394'
+const txt = 'Hello 👨‍👩‍👦‍👦🏳️‍🌈😀🇿🇼  world 123 æøå!'
 
 console.log(txt)
 
 // ### Testing: Text to plaincode
-const plaincodeConverted = textToPlaincode(txt, eng, codebook)
+const plaincodeConverted = textToPlaincode(txt, nob, codebook)
 console.log(plaincodeConverted + ' ===\n' + plaincode + ' ?')
 
 if (plaincodeConverted === plaincode) {
@@ -16,7 +16,7 @@ if (plaincodeConverted === plaincode) {
 }
 
 // ### Testing: Plaincode to text
-const textConverted = plaincodeToText(plaincode, eng, codebook)
+const textConverted = plaincodeToText(plaincode, nob, codebook)
 console.log('converted plaincode: \'' + plaincode + '\' back to text: \'' + textConverted + '\'')
 
 if (textConverted === txt.toLowerCase()) {
