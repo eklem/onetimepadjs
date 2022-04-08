@@ -12,7 +12,7 @@ npm install otp-encryption-decryption-lib
 
 index.mjs:
 ```javaScript
-import { textToPlaincode, plaincodeToText, createOnetimePad, nob, codebook, checkLength, encryptPlaincode, decryptEncryptedMsg } from '../src/index.mjs'
+import { textToPlaincode, plaincodeToText, createOnetimePad, nob, codebook, checkLength, encryptPlaincode, decryptEncryptedMsg } from 'otp-encryption-decryption-lib'
 
 // The message
 const txt = 'Hello 👨‍👩‍👦‍👦🏳️‍🌈😀🇿🇼  world 123 æøå!'
