@@ -68,14 +68,15 @@ createOnetimePad(length)
 // Return a one-time pad of desired length.
 ```
 
-### eng
+### Language conversion tables and regexes
+#### eng
 ```javaScript
 eng.textRegex // regex pattern for converting english text, numbers and punctuation into single characters
 eng.plaincodeRegex // regex pattern for converting english plaincode string into array of plaincodes
 eng.table // unicode <-> plaincode conversion table for english
 ```
 
-### nob
+#### nob
 ```javaScript
 nob.textRegex // regex pattern for converting norwegian text, numbers and punctuation into single characters
 nob.plaincodeRegex // regex pattern for converting norwegian plaincode string into array of plaincodes
