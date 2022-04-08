@@ -1,6 +1,6 @@
 {
   "name": "otp-encryption-decryption-tools",
-  "version": "0.0.2",
+  "version": "1.0.0",
   "description": "Small tools and functions for encrypting and decrypting messages with OTPs - One-time pads. ",
   "main": "./src/index.js",
   "scripts": {
