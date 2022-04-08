@@ -7,7 +7,7 @@ console.log('\n\nInput:               ' + txt)
 
 // ### Testing: Text to plaincode
 const plaincodeConverted = textToPlaincode(txt, nob, codebook)
-console.log('Plaincode:           ' + plaincode)
+console.log('Plaincode:           ' + plaincodeConverted)
 
 if (plaincodeConverted === plaincode) {
   // console.log('\n### textToPlaincode works!\n')
@@ -16,7 +16,7 @@ if (plaincodeConverted === plaincode) {
 }
 
 // ### Testing: Creating a one-time pad
-const otp = createOnetimePad(96)
+const otp = createOnetimePad(100)
 console.log('One-time pad:        ' + otp)
 
 const lengthObj = checkLength(plaincodeConverted, otp)
