@@ -1,7 +1,7 @@
 import { textToPlaincode, plaincodeToText, createOnetimePad, nob, codebook, checkLength, encryptPlaincode, decryptEncryptedMsg } from '../src/index.mjs'
 
 // The message
-const message = 'Hello 👨‍👩‍👦‍👦🏳️‍🌈😀🇿🇼  world 123 æøå!'
+const message = ',@#+-/.:!(=?)Hello 👨‍👩‍👦‍👦🏳️‍🌈😀🇿🇼  world, 123 æøå!'
 console.log('\n\nMessage:             ' + message)
 
 // ### Testing: Text to plaincode
@@ -9,7 +9,7 @@ const plaincodeConverted = textToPlaincode(message, nob, codebook)
 console.log('Plaincode:           ' + plaincodeConverted)
 
 // ### Testing: Creating a one-time pad
-const otp = createOnetimePad(100)
+const otp = createOnetimePad(96)
 console.log('One-time pad:        ' + otp)
 
 // ### Checking length of plaincode vs. one-time pad

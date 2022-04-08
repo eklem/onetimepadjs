@@ -1,6 +1,6 @@
 const eng = {
   plaincodeRegex: '0\\d{4}|[1-5]|(90[0-9]{1})|(6[0-9]{1})|(7[0-9]{1})|(8[0-9]{1})|(9[1-9]{1})',
-  textRegex: '[a-z0-9\\s]|[*@#+-/.:!(=?)]',
+  textRegex: '[a-z0-9\\s]|[,@#+-/.:!(=?)]',
   table: [
     { unicode: 'a', plaincode: '1' },
     { unicode: 'e', plaincode: '2' },
@@ -28,7 +28,7 @@ const eng = {
     { unicode: 'x', plaincode: '78' },
     { unicode: 'y', plaincode: '79' },
     { unicode: 'z', plaincode: '80' },
-    { unicode: '*', plaincode: '84' },
+    { unicode: ',', plaincode: '84' },
     { unicode: '@', plaincode: '85' },
     { unicode: '#', plaincode: '86' },
     { unicode: '+', plaincode: '87' },
