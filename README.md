@@ -6,6 +6,11 @@ Library of small snippets, tools and helper-functions for encrypting and decrypt
 Will be core functionality for [otp-encryption-decryption-toy](https://github.com/eklem/otp-encryption-decryption-toy)
 
 ## Example usage
+```sh
+npm install otp-encryption-decryption-lib
+```
+
+index.mjs:
 ```javaScript
 import { textToPlaincode, plaincodeToText, createOnetimePad, nob, codebook, checkLength, encryptPlaincode, decryptEncryptedMsg } from '../src/index.mjs'
 
@@ -48,6 +53,11 @@ if (textConverted === txt.toLowerCase()) {
 } else {
   console.log('\n### plaincodeToText doesn\'t work!\n')
 }
+```
+
+Run it with:
+```sh
+node --experimental-json-modules index.mjs
 ```
 
 ## API
