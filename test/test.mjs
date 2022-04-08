@@ -3,40 +3,39 @@ import { textToPlaincode, plaincodeToText, createOnetimePad, nob, codebook, chec
 const plaincode = '72162626399022530316200000034229999806326264999019029039979767394'
 const txt = 'Hello 👨‍👩‍👦‍👦🏳️‍🌈😀🇿🇼  world 123 æøå!'
 
-console.log(txt)
+console.log('\n\nInput:               ' + txt)
 
 // ### Testing: Text to plaincode
 const plaincodeConverted = textToPlaincode(txt, nob, codebook)
-console.log(plaincodeConverted + ' ===\n' + plaincode + ' ?')
+console.log('Plaincode:           ' + plaincode)
 
 if (plaincodeConverted === plaincode) {
-  console.log('\n### textToPlaincode works!\n')
+  // console.log('\n### textToPlaincode works!\n')
 } else {
   console.log('\n### textToPlaincode doesn\'t work!\n')
 }
 
 // ### Testing: Creating a one-time pad
-const otp = createOnetimePad(256)
-console.log(otp)
+const otp = createOnetimePad(96)
+console.log('One-time pad:        ' + otp)
 
-const length = checkLength(plaincodeConverted, otp)
-console.log('\n### Length of plaincode compared to one-time pad')
-console.log(JSON.stringify(length) + '\n')
+const lengthObj = checkLength(plaincodeConverted, otp)
+console.log('Length:              ' + JSON.stringify(lengthObj))
 
 // ### Testing: Encrypting plaincode
 const encryptedMsg = encryptPlaincode(plaincodeConverted, otp)
-console.log(encryptedMsg)
+console.log('Encrypted plaincode: ' + encryptedMsg.join(''))
 
 // ### Testing: Decrypting encrypted message
 const decryptedPlaincode = decryptEncryptedMsg(encryptedMsg.join(''), otp)
-console.log(decryptedPlaincode)
+console.log('Decrypted plaincode: ' + decryptedPlaincode.join(''))
 
 // ### Testing: Plaincode to text
 const textConverted = plaincodeToText(decryptedPlaincode.join(''), nob, codebook)
-console.log('converted plaincode: \'' + plaincode + '\' back to text: \'' + textConverted + '\'')
+console.log('Decrypted msg:       ' + textConverted + '\n\n')
 
 if (textConverted === txt.toLowerCase()) {
-  console.log('\n### plaincodeToText works!\n')
+  // console.log('\n### plaincodeToText works!\n')
 } else {
   console.log('\n### plaincodeToText doesn\'t work!\n')
 }

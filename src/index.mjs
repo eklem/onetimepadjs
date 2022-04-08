@@ -31,9 +31,6 @@ function textToPlaincode (text, conversionLanguage, codebook) {
 function plaincodeToText (plaincode, conversionLanguage, codebook) {
   // Joining regular conversion table and codebook
   conversionLanguage.table = [...conversionLanguage.table, ...codebook]
-
-  console.log(plaincode)
-  console.log(conversionLanguage.plaincodeRegex)
   // finding via regex: plaincode enteties in plaincode string
   const regex = new RegExp(conversionLanguage.plaincodeRegex, 'g')
   const plaincodeArr = plaincode.match(regex)
@@ -75,8 +72,6 @@ function encryptPlaincode (plaincode, otp) {
   // Encrypt
   const encryptedMsg = plaincodeArr.map((digit, index) => {
     const encryptedDigit = encryptDecryptDigit(digit, otpArr[index], 'encrypt')
-    const decryptedDigit = encryptDecryptDigit(encryptedDigit, otpArr[index], 'decrypt')
-    console.log('digit: ' + digit + '  key: ' + otpArr[index] + '  encryptedDigit: ' + encryptedDigit + '  decryptedDigit: ' + decryptedDigit)
     return encryptedDigit
   })
   return encryptedMsg
