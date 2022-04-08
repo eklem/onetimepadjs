@@ -13,20 +13,20 @@ Will be core functionality for [otp-encryption-decryption-toy](https://github.co
 ### textToPlaincode
 ```javaScript
 textToPlaincode(text, conversionLanguage, codebook)
+// Returns plaincode string from text.
 ```
-Returns plaincode string from text.
 
 ### plaincodeToText
 ```javaScript
 plaincodeToText(plaincode, conversionLanguage, codebook)
+// Returns text string from plaincode string.
 ```
-Returns text string from plaincode string.
 
 ### createOnetimePad
 ```javaScript
 createOnetimePad(length)
+// Return a one-time pad of desired length.
 ```
-Return a one-time pad of desired length.
 
 ### eng
 ```javaScript
@@ -57,14 +57,14 @@ Helper function to check if plaincode length (and thus your message length) is t
 ### encryptPlaincode
 ```javaScript
 encryptPlaincode(plaincode, otp)
+// Returns encrypted message as an array of numbers.
 ```
-Returns encrypted message as an array of numbers.
 
 ### decryptEncryptedMsg
 ```javaScript
 decryptEncryptedMsg(encryptedMsg, otp)
+// Returns message as an array of characters.
 ```
-Returns message as an array of characters.
 
 ## Maintenance
 If unicode emojis are updated (to i.e. v.15 or v.14.1)
