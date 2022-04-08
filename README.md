@@ -85,7 +85,7 @@ nob.table // unicode <-> plaincode conversion table for norwegian
 
 ### codebook
 ```javaScript
-codebook // conversion table for emoji <-> plaincode
+codebook // conversion table for all (almost) unicode emojis <-> plaincode
 ```
 
 ### checkLength
