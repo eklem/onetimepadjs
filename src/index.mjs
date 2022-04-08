@@ -5,19 +5,19 @@ import { nob } from './conversiontable-nob.mjs'
 const codebook = codebookRaw.default
 
 // ### Function: Text to plaincode
-function textToPlaincode (text, conversion, codebook) {
+function textToPlaincode (text, conversionLanguage, codebook) {
   // Joining regular conversion table and codebook
-  conversion.table = [...conversion.table, ...codebook]
+  conversionLanguage.table = [...conversionLanguage.table, ...codebook]
   text = text.toLowerCase()
 
   // split into array of characters
-  let regex = emojiRegex + '|' + conversion.textRegex
+  let regex = emojiRegex + '|' + conversionLanguage.textRegex
   regex = new RegExp(regex, 'g')
   const textArr = text.match(regex)
 
   // convert text to plaincode
   const plaincode = textArr.map((character) => {
-    const letterObj = conversion.table.find(obj => obj.unicode === character)
+    const letterObj = conversionLanguage.table.find(obj => obj.unicode === character)
     try {
       return letterObj.plaincode
     } catch (error) {
@@ -28,19 +28,19 @@ function textToPlaincode (text, conversion, codebook) {
 }
 
 // ### Function: Plaincode to text
-function plaincodeToText (plaincode, conversion, codebook) {
+function plaincodeToText (plaincode, conversionLanguage, codebook) {
   // Joining regular conversion table and codebook
-  conversion.table = [...conversion.table, ...codebook]
+  conversionLanguage.table = [...conversionLanguage.table, ...codebook]
 
   console.log(plaincode)
-  console.log(conversion.plaincodeRegex)
+  console.log(conversionLanguage.plaincodeRegex)
   // finding via regex: plaincode enteties in plaincode string
-  const regex = new RegExp(conversion.plaincodeRegex, 'g')
+  const regex = new RegExp(conversionLanguage.plaincodeRegex, 'g')
   const plaincodeArr = plaincode.match(regex)
 
   // convert plaincode to text
   const text = plaincodeArr.map((plaincode) => {
-    const letterObj = conversion.table.find(obj => obj.plaincode === plaincode)
+    const letterObj = conversionLanguage.table.find(obj => obj.plaincode === plaincode)
     return letterObj.unicode
   })
   return text.join('')
@@ -56,25 +56,56 @@ function createOnetimePad (length) {
 }
 
 // ### Function: Check one-time pad >= plaincode
-function checkLength (message, otp) {
+function checkLength (plaincode, otp) {
   let tooLong = false
-  const messageLength = message.length
+  const plaincodeLength = plaincode.length
   const otpLength = otp.length
-  if (messageLength > otpLength) {
+  if (plaincodeLength > otpLength) {
     tooLong = true
   }
-
-  return { messageLength: messageLength, otpLength: otpLength, tooLong: tooLong }
+  return { plaincodeLength: plaincodeLength, otpLength: otpLength, tooLong: tooLong }
 }
 
 // ### Function: Encrypt
 function encryptPlaincode (plaincode, otp) {
-  // nothing much yet
+  // Split string into array
+  const plaincodeArr = plaincode.split('')
+  const otpArr = otp.split('')
+
+  // Encrypt
+  const encryptedMsg = plaincodeArr.map((digit, index) => {
+    const encryptedDigit = encryptDecryptDigit(digit, otpArr[index], 'encrypt')
+    const decryptedDigit = encryptDecryptDigit(encryptedDigit, otpArr[index], 'decrypt')
+    console.log('digit: ' + digit + '  key: ' + otpArr[index] + '  encryptedDigit: ' + encryptedDigit + '  decryptedDigit: ' + decryptedDigit)
+    return encryptedDigit
+  })
+  return encryptedMsg
 }
 
 // ### Function: Decrypt
-function decryptEncrypted (message, otp) {
-  // nothing much yet
+function decryptEncryptedMsg (encryptedMsg, otp) {
+  // Split string into array
+  const encryptedMsgArr = encryptedMsg.split('')
+  const otpArr = otp.split('')
+
+  // Decrypt
+  const decryptedMsg = encryptedMsgArr.map((encryptedDigit, index) => {
+    const decryptedDigit = encryptDecryptDigit(encryptedDigit, otpArr[index], 'decrypt')
+    return decryptedDigit
+  })
+  return decryptedMsg
 }
 
-export { textToPlaincode, plaincodeToText, createOnetimePad, eng, nob, codebook, checkLength, encryptPlaincode, decryptEncrypted }
+// ### Function
+function encryptDecryptDigit (digit, otpKey, direction) {
+  let encryptedDecrypted
+  if (direction === 'encrypt') {
+    encryptedDecrypted = (parseInt(digit, 10) + parseInt(otpKey, 10)) % 10
+  }
+  if (direction === 'decrypt') {
+    encryptedDecrypted = (digit - otpKey + 10) % 10
+  }
+  return encryptedDecrypted
+}
+
+export { textToPlaincode, plaincodeToText, createOnetimePad, eng, nob, codebook, checkLength, encryptPlaincode, decryptEncryptedMsg }
