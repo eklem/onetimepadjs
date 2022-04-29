@@ -1,5 +1,5 @@
 # otp-encryption-decryption-lib
-Library of small snippets, tools and helper-functions for encrypting and decrypting messages with OTPs - One-time pads. Check [issues](https://github.com/eklem/otp-encryption-decryption-lib/issues) to see what's comming and `/src` or API dockumentation for what's already done.
+Library of small snippets, tools and helper-functions for encrypting and decrypting messages with OTPs - One-time pads.
 
 ![Example-code](https://github.com/eklem/otp-encryption-decryption-lib/blob/trunk/otp-library-03.png)
 
