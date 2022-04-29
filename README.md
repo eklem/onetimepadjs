@@ -3,7 +3,7 @@ Library of small snippets, tools and helper-functions for encrypting and decrypt
 
 ![Example-code](https://github.com/eklem/otp-encryption-decryption-tools/blob/trunk/otp-library-03.png)
 
-Will be core functionality for [otp-encryption-decryption-toy](https://github.com/eklem/otp-encryption-decryption-toy)
+Will be core functionality together with [nfc-otp-transfer](https://github.com/eklem/nfc-otp-transfer) for creating [otp-encryption-toy](https://github.com/eklem/otp-encryption-toy)
 
 ## Example usage
 ```sh
