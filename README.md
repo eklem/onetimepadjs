@@ -1,9 +1,9 @@
 # otp-encryption-decryption-lib
 Library of small snippets, tools and helper-functions for encrypting and decrypting messages with OTPs - One-time pads. Check [issues](https://github.com/eklem/otp-encryption-decryption-lib/issues) to see what's comming and `/src` or API dockumentation for what's already done.
 
-![Example-code](https://github.com/eklem/otp-encryption-decryption-tools/blob/trunk/otp-library-03.png)
+![Example-code](https://github.com/eklem/otp-encryption-decryption-lib/blob/trunk/otp-library-03.png)
 
-Will be core functionality together with [nfc-otp-transfer](https://github.com/eklem/nfc-otp-transfer) for creating [otp-encryption-toy](https://github.com/eklem/otp-encryption-toy)
+Will be core functionality together with [nfc-json-transfer](https://github.com/eklem/nfc-json-transfer) for creating [otp-encryption-toy](https://github.com/eklem/otp-encryption-toy)
 
 ## Example usage
 ```sh
