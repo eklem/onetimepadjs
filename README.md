@@ -111,5 +111,5 @@ decryptEncryptedMsg(encryptedMsg, otp)
 If unicode emojis are updated (to i.e. v.15 or v.14.1)
 
 ```console
-node ./maintenance/fetch-emojis.mjs && node ./maintenance/create-emoji-codebook.mjs
+node ./scripts/fetch-emojis.mjs && node ./scripts/create-emoji-codebook.mjs
 ```
