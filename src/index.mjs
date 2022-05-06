@@ -1,3 +1,4 @@
+const { randomInt } = await import('node:crypto')
 import { codebookRaw } from './codebook-emojis.mjs'
 import { emojiRegex } from './regex-emojis.mjs'
 import { eng } from './conversiontable-eng.mjs'
@@ -47,7 +48,7 @@ function plaincodeToText (plaincode, conversionLanguage, codebook) {
 function createOnetimePad (length) {
   let otp = ''
   for (let i = 0; i < length; i++) {
-    otp = otp + Math.floor(Math.random() * 10)
+    otp = otp + randomInt(10)
   }
   return otp
 }
