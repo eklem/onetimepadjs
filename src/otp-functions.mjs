@@ -1,4 +1,4 @@
-const { randomInt } = await import('node:crypto')
+import { createOnetimePad } from './otp-node.mjs'
 import { codebookRaw } from './codebook-emojis.mjs'
 import { emojiRegex } from './regex-emojis.mjs'
 import { eng } from './conversiontable-eng.mjs'
@@ -44,14 +44,14 @@ function plaincodeToText (plaincode, conversionLanguage, codebook) {
   return text.join('')
 }
 
-// ### Function: Create one-time pad
-function createOnetimePad (length) {
-  let otp = ''
-  for (let i = 0; i < length; i++) {
-    otp = otp + randomInt(10)
-  }
-  return otp
-}
+// // ### Function: Create one-time pad
+// function createOnetimePad (length) {
+//   let otp = ''
+//   for (let i = 0; i < length; i++) {
+//     otp = otp + randomInt(10)
+//   }
+//   return otp
+// }
 
 // ### Function: Check one-time pad >= plaincode
 function checkLength (plaincode, otp) {
