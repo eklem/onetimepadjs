@@ -44,15 +44,6 @@ function plaincodeToText (plaincode, conversionLanguage, codebook) {
   return text.join('')
 }
 
-// // ### Function: Create one-time pad
-// function createOnetimePad (length) {
-//   let otp = ''
-//   for (let i = 0; i < length; i++) {
-//     otp = otp + randomInt(10)
-//   }
-//   return otp
-// }
-
 // ### Function: Check one-time pad >= plaincode
 function checkLength (plaincode, otp) {
   let tooLong = false
