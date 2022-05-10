@@ -1,4 +1,4 @@
-const { getRandomValues } = await import('node:crypto')
+import { getRandomValues } from 'node:crypto'
 
 // ### Function: Create one-time pad based on crypto.getRandomValues
 function createOnetimePad (length) {

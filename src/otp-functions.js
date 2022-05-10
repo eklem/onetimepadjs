@@ -1,8 +1,8 @@
-import { createOnetimePad } from './otp-node.mjs'
-import { codebookRaw } from './codebook-emojis.mjs'
-import { emojiRegex } from './regex-emojis.mjs'
-import { eng } from './conversiontable-eng.mjs'
-import { nob } from './conversiontable-nob.mjs'
+import { createOnetimePad } from './otp-node.js'
+import { codebookRaw } from './codebook-emojis.js'
+import { emojiRegex } from './regex-emojis.js'
+import { eng } from './conversiontable-eng.js'
+import { nob } from './conversiontable-nob.js'
 const codebook = codebookRaw.default
 
 // ### Function: Text to plaincode
