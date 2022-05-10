@@ -95,4 +95,4 @@ function encryptDecryptDigit (digit, otpKey, direction) {
   return encryptedDecrypted
 }
 
-export { textToPlaincode, plaincodeToText, createOnetimePad, eng, nob, codebook, checkLength, encryptPlaincode, decryptEncryptedMsg }
+export { textToPlaincode, plaincodeToText, checkLength, encryptPlaincode, decryptEncryptedMsg, eng, nob, codebook, createOnetimePad }
