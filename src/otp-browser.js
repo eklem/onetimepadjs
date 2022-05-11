@@ -2,7 +2,7 @@
 function createOnetimePad (length) {
   let otp = ''
   let array = new Uint8Array(128)
-  self.getRandomValues(array)
+  window.getRandomValues(array)
 
   for (var i = 0; i < array.length; i++) {
     // converting from 0-255 to single digits (0-9)

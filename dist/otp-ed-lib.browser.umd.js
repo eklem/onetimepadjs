@@ -1,14 +1,14 @@
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('crypto')) :
   typeof define === 'function' && define.amd ? define(['exports', 'crypto'], factory) :
-  (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global.otp = {}, global.require$$0$1));
+  (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global.otp = {}, global.globalVariable));
 })(this, (function (exports, require$$0$1) { 'use strict';
 
   function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
 
   var require$$0__default = /*#__PURE__*/_interopDefaultLegacy(require$$0$1);
 
-  var indexNode = {};
+  var indexBrowser = {};
 
   var otpFunctions = {};
 
@@ -13984,24 +13984,28 @@
   otpFunctions.codebook = codebook$1;
   otpFunctions.createOnetimePad = createOnetimePad$1;
 
-  const { textToPlaincode, plaincodeToText, eng, nob, codebook, checkLength, encryptPlaincode, decryptEncryptedMsg } = otpFunctions;
-  const { createOnetimePad } = otpNode;
+  var otpBrowser = {};
 
-  var createOnetimePad_1 = indexNode.createOnetimePad = createOnetimePad;
-  var textToPlaincode_1 = indexNode.textToPlaincode = textToPlaincode;
-  var plaincodeToText_1 = indexNode.plaincodeToText = plaincodeToText;
-  var eng_1 = indexNode.eng = eng;
-  var nob_1 = indexNode.nob = nob;
-  var codebook_1 = indexNode.codebook = codebook;
-  var checkLength_1 = indexNode.checkLength = checkLength;
-  var encryptPlaincode_1 = indexNode.encryptPlaincode = encryptPlaincode;
-  var decryptEncryptedMsg_1 = indexNode.decryptEncryptedMsg = decryptEncryptedMsg;
+  otpBrowser.createOnetimePad = createOneTimePad;
+
+  const { textToPlaincode, plaincodeToText, eng, nob, codebook, checkLength, encryptPlaincode, decryptEncryptedMsg } = otpFunctions;
+  const { createOnetimePad } = otpBrowser;
+
+  var createOnetimePad_1 = indexBrowser.createOnetimePad = createOnetimePad;
+  var textToPlaincode_1 = indexBrowser.textToPlaincode = textToPlaincode;
+  var plaincodeToText_1 = indexBrowser.plaincodeToText = plaincodeToText;
+  var eng_1 = indexBrowser.eng = eng;
+  var nob_1 = indexBrowser.nob = nob;
+  var codebook_1 = indexBrowser.codebook = codebook;
+  var checkLength_1 = indexBrowser.checkLength = checkLength;
+  var encryptPlaincode_1 = indexBrowser.encryptPlaincode = encryptPlaincode;
+  var decryptEncryptedMsg_1 = indexBrowser.decryptEncryptedMsg = decryptEncryptedMsg;
 
   exports.checkLength = checkLength_1;
   exports.codebook = codebook_1;
   exports.createOnetimePad = createOnetimePad_1;
   exports.decryptEncryptedMsg = decryptEncryptedMsg_1;
-  exports["default"] = indexNode;
+  exports["default"] = indexBrowser;
   exports.encryptPlaincode = encryptPlaincode_1;
   exports.eng = eng_1;
   exports.nob = nob_1;

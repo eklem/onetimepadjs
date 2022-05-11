@@ -1,4 +1,12 @@
-import { textToPlaincode, plaincodeToText, eng, nob, codebook, checkLength, encryptPlaincode, decryptEncryptedMsg } from './otp-functions.js'
-import { createOnetimePad } from './otp-browser.js'
+const { textToPlaincode, plaincodeToText, eng, nob, codebook, checkLength, encryptPlaincode, decryptEncryptedMsg } = require('./otp-functions.js')
+const { createOnetimePad } = require('./otp-browser.js')
 
-export { createOnetimePad, textToPlaincode, plaincodeToText, eng, nob, codebook, checkLength, encryptPlaincode, decryptEncryptedMsg }
+exports.createOnetimePad = createOnetimePad
+exports.textToPlaincode = textToPlaincode
+exports.plaincodeToText = plaincodeToText
+exports.eng = eng
+exports.nob = nob
+exports.codebook = codebook
+exports.checkLength = checkLength
+exports.encryptPlaincode = encryptPlaincode
+exports.decryptEncryptedMsg = decryptEncryptedMsg

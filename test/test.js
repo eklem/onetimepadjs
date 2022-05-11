@@ -1,4 +1,4 @@
-const { textToPlaincode, plaincodeToText, createOnetimePad, nob, codebook, checkLength, encryptPlaincode, decryptEncryptedMsg } = require('../src/index-node.js')
+const { textToPlaincode, plaincodeToText, createOnetimePad, nob, codebook, checkLength, encryptPlaincode, decryptEncryptedMsg } = require('../dist/otp-ed-lib.nodejs.cjs')
 
 // The message
 const message = 'Hello 👨‍👩‍👦‍👦🏳️‍🌈😀🇿🇼  world, 123:æøå! https://somesecreturl.com/'
@@ -9,7 +9,7 @@ const plaincodeConverted = textToPlaincode(message, nob, codebook)
 console.log('Plaincode:           ' + plaincodeConverted)
 
 // ### Testing: Creating a one-time pad
-const otp = createOnetimePad(128)
+const otp = createOnetimePad(1024)
 console.log('One-time pad:        ' + otp)
 
 // ### Checking length of plaincode vs. one-time pad
