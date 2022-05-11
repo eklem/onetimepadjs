@@ -1,16 +1,14 @@
-import { getRandomValues } from 'node:crypto'
+const crypto = require('crypto').webcrypto
 
 // ### Function: Create one-time pad based on crypto.getRandomValues
 function createOnetimePad (length) {
   let otp = ''
-  let array = new Uint8Array(128)
-  getRandomValues(array)
-  
-  for (var i = 0; i < array.length; i++) {
+  let randomValuesArr = crypto.getRandomValues(new Uint8Array(length));
+  for (var i = 0; i < randomValuesArr.length; i++) {
     // converting to single digits
-    otp += Math.floor(array[i]/256*10)
+    otp += Math.floor(randomValuesArr[i]/256*10)
   }
   return otp
 }
 
-export { createOnetimePad }
+exports.createOnetimePad = createOnetimePad

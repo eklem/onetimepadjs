@@ -11,4 +11,4 @@ function createOnetimePad (length) {
   return otp
 }
   
-export { createOnetimePad }
+exports.createOnetimePad = createOneTimePad

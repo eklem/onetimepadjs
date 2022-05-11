@@ -10,7 +10,7 @@ export default [
     input: './src/index-node.js',
     output: [
       { name: 'otp', file: './dist/otplib.umd.js', format: 'umd', exports: 'named' },
-      { file: './dist/otplib.cjs.js', format: 'cjs' },
+      { file: './dist/otplib.cjs.js', format: 'cjs', exports: 'named' },
       { file: './dist/otplib.esm.mjs', format: 'es' }
     ],
     plugins: [
@@ -24,7 +24,7 @@ export default [
     input: './src/index-node.js',
     output: [
       { name: 'otp', file: './dist/otplib.umd.min.js', format: 'umd', exports: 'named' },
-      { file: './dist/otplib.cjs.min.js', format: 'cjs' },
+      { file: './dist/otplib.cjs.min.js', format: 'cjs', exports: 'named' },
       { file: './dist/otplib.esm.min.mjs', format: 'es' }
     ],
     plugins: [

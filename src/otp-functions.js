@@ -1,9 +1,9 @@
-import { createOnetimePad } from './otp-node.js'
-import { codebookRaw } from './codebook-emojis.js'
-import { emojiRegex } from './regex-emojis.js'
-import { eng } from './conversiontable-eng.js'
-import { nob } from './conversiontable-nob.js'
-const codebook = codebookRaw.default
+const { createOnetimePad } = require('./otp-node.js')
+const { codebookRaw } = require('./codebook-emojis.js')
+const { emojiRegex } = require('./regex-emojis.js')
+const { eng } = require('./conversiontable-eng.js')
+const { nob } = require('./conversiontable-nob.js')
+const codebook = codebookRaw
 
 // ### Function: Text to plaincode
 function textToPlaincode (text, conversionLanguage, codebook) {
@@ -95,4 +95,12 @@ function encryptDecryptDigit (digit, otpKey, direction) {
   return encryptedDecrypted
 }
 
-export { textToPlaincode, plaincodeToText, checkLength, encryptPlaincode, decryptEncryptedMsg, eng, nob, codebook, createOnetimePad }
+exports.textToPlaincode = textToPlaincode
+exports.plaincodeToText = plaincodeToText
+exports.checkLength = checkLength
+exports.encryptPlaincode = encryptPlaincode
+exports.decryptEncryptedMsg = decryptEncryptedMsg
+exports.eng = eng
+exports.nob = nob
+exports.codebook = codebook
+exports.createOnetimePad = createOnetimePad
