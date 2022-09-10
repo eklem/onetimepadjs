@@ -2,6 +2,7 @@
 
 [![NPM version](http://img.shields.io/npm/v/otp-encryption-decryption-lib.svg?style=flat)](https://npmjs.org/package/otp-encryption-decryption-lib)
 [![NPM downloads](http://img.shields.io/npm/dm/otp-encryption-decryption-lib.svg?style=flat)](https://npmjs.org/package/otp-encryption-decryption-lib) 
+[![jSDelivr CDN](https://data.jsdelivr.com/v1/package/npm/otp-encryption-decryption-lib/badge?style=rounded)](https://www.jsdelivr.com/package/npm/otp-encryption-decryption-lib)
 [![tests](https://github.com/eklem/otp-encryption-decryption-lib/actions/workflows/tests.yml/badge.svg)](https://github.com/eklem/otp-encryption-decryption-lib/actions/workflows/tests.yml)
 [![MIT License](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](LICENSE)
 
