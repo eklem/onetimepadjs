@@ -1,6 +1,6 @@
 {
   "name": "otp-encryption-decryption-lib",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Library of small snippets, tools and helper-functions for encrypting and decrypting messages with OTPs - One-time pads.",
   "main": "./dist/otp-ed-lib.nodejs.cjs.js",
   "module": "./dist/otp-ed-lib.nodejs.esm.mjs",
