@@ -124,4 +124,4 @@ node ./fetch-emojis.mjs && node ./create-emoji-regex.mjs && node ./create-emoji-
 
 ## Possible issue
 
-Haven't found a unique way of numbering/addressing the unicode emojis that will work cross unicode emoji versions, so then stuff won't encrypt/decrypt properly if you use different versions of the library
+Haven't found a unique way of numbering/addressing the unicode emojis that will work cross unicode emoji versions, so then stuff won't encrypt/decrypt properly if you use different versions of the library.
