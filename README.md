@@ -118,5 +118,14 @@ decryptEncryptedMsg(encryptedMsg, otp)
 If unicode emojis are updated (to i.e. v.15 or v.14.1)
 
 ```console
+<<<<<<< HEAD
 node ./scripts/fetch-emojis.mjs && node ./scripts/create-emoji-codebook.mjs
+=======
+cd scipts
+node ./fetch-emojis.mjs && node ./create-emoji-regex.mjs && node ./create-emoji-codebook.mjs
+>>>>>>> ce37b00 (update readme on emoji codebook build scripts)
 ```
+
+## Possible issue
+
+Haven't found a unique way of numbering/addressing the unicode emojis that will work cross unicode emoji versions, so then stuff won't encrypt/decrypt properly if you use different versions of the library
