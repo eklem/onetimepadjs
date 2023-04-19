@@ -115,7 +115,7 @@ decryptEncryptedMsg(encryptedMsg, otp)
 ```
 
 ## Maintenance
-If unicode emojis are updated (to i.e. v.16 or v.15)
+If unicode emojis are updated (to i.e. v.16 from v.15)
 
 ```console
 cd scipts
