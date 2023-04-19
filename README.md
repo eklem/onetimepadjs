@@ -115,15 +115,11 @@ decryptEncryptedMsg(encryptedMsg, otp)
 ```
 
 ## Maintenance
-If unicode emojis are updated (to i.e. v.15 or v.14.1)
+If unicode emojis are updated (to i.e. v.16 or v.15)
 
 ```console
-<<<<<<< HEAD
-node ./scripts/fetch-emojis.mjs && node ./scripts/create-emoji-codebook.mjs
-=======
 cd scipts
 node ./fetch-emojis.mjs && node ./create-emoji-regex.mjs && node ./create-emoji-codebook.mjs
->>>>>>> ce37b00 (update readme on emoji codebook build scripts)
 ```
 
 ## Possible issue

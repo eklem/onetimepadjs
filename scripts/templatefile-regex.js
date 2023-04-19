@@ -1,3 +1,3 @@
 const emojiRegex = ['<% pattern %>']
 
-export { emojiRegex }
+exports.emojiRegex = emojiRegex

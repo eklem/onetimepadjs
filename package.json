@@ -1,13 +1,13 @@
 {
   "name": "otp-encryption-decryption-lib",
-  "version": "0.2.2",
+  "version": "0.3.0",
   "description": "Library of small snippets, tools and helper-functions for encrypting and decrypting messages with OTPs - One-time pads.",
   "main": "./dist/otp-ed-lib.nodejs.cjs.js",
   "module": "./dist/otp-ed-lib.nodejs.esm.mjs",
   "browser": "./dist/otp-ed-lib.browser.umd.js",
   "scripts": {
     "build": "rollup --config",
-    "test": "standard './scripts/*.js' && cd ./test && npx ava cjs.nodejs.js && npx ava esm.nodejs.mjs"
+    "test": "npm run build && standard './scripts/*.js' && cd ./test && npx ava cjs.nodejs.js && npx ava esm.nodejs.mjs"
   },
   "repository": {
     "type": "git",
@@ -16,7 +16,7 @@
   "devDependencies": {
     "batr": "^2.1.8",
     "node-fetch": "^3.3.1",
-    "words-n-numbers": "^7.1.2",
+    "words-n-numbers": "^8.0.0",
     "rgi-emoji-regex-pattern": "^1.3.1"
   },
   "keywords": [
