@@ -103,7 +103,7 @@ createOnetimePad(length)
 
 Table + regular expression for different languages. Most used letters differs from language to language. To be able to keep the plaincode short and thus needing shorter one-time-pads, the five most used letters are assigned to 0-5 in plaincode. Numbers starts with the digit `9` and consists of 3 digits.
 
-The table is used for converting letters, digits and emojis to plaincode and the other way around. The regular expression is to split up a plaincode-string into an array of plaincodes so that you it can use the conversion table to get a plaincode-string to a text-string (text, numbers and emojis).
+The table is used for converting letters, digits and emojis to plaincode and the other way around. There are two regular expressions for each language. One is to split up text strings containing text, numbers and emojis into single letters, digits and emojis. The other one is to split up a plaincode-string into an array of plaincodes so that you it can use the conversion table to get a plaincode-string to a text-string (text, numbers and emojis).
 
 #### eng
 
