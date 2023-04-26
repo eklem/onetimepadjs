@@ -78,11 +78,15 @@ textToPlaincode(text, conversionLanguage, codebook)
 // Returns plaincode string from text.
 ```
 
+Converts plaintext to plaincode. Plaincode is just numbers, and not encrypted. It's a step that uses a conversion table to change the text, numbers and emojis into numbers, which makes it possible to do one-time-pad encryption.
+
 ### plaincodeToText
 ```javaScript
 plaincodeToText(plaincode, conversionLanguage, codebook)
 // Returns text string from plaincode string.
 ```
+
+Converts plaincode back to plaintext.
 
 ### createOnetimePad
 ```javaScript
@@ -90,8 +94,18 @@ createOnetimePad(length)
 // Return a one-time pad of desired length.
 ```
 
+The length of the should be equal to or larger than your plaincode. And it should only be used once. This ensures that it is impossible to break the code and read the encrypted message.
+
 ### Language conversion tables and regexes
+
+Table + regular expression for different languages. Most used letters differs from language to language. To be able to keep the plaincode short and thus needing shorter one-time-pads, the five most used letters are assigned to 0-5 in plaincode. Numbers starts with the digit `9` and consists of 3 digits.
+
+The table is used for converting letters, digits and emojis to plaincode and the other way around. The regular expression is to split up a plaincode-string into an array of plaincodes so that you it can use the conversion table to get a plaincode-string to a text-string (text, numbers and emojis).
+
 #### eng
+
+Conversion table and matching regular expression for the English language.
+
 ```javaScript
 eng.textRegex // regex pattern for converting english text, numbers and punctuation into single characters
 eng.plaincodeRegex // regex pattern for converting english plaincode string into array of plaincodes
@@ -99,6 +113,9 @@ eng.table // unicode <-> plaincode conversion table for english
 ```
 
 #### nob
+
+Conversion table and matching regular expression for the Norwegian language.
+
 ```javaScript
 nob.textRegex // regex pattern for converting norwegian text, numbers and punctuation into single characters
 nob.plaincodeRegex // regex pattern for converting norwegian plaincode string into array of plaincodes
@@ -106,30 +123,42 @@ nob.table // unicode <-> plaincode conversion table for norwegian
 ```
 
 ### codebook
+
+Code book for emojis. Starts with a `0` in plaincode and then 4 digits. Traditionallhy it has been used to be able to write shorter messages, having a short code for longer, often used words. Here it is to be able to express all Unicode emojis.
+
 ```javaScript
 codebook // conversion table for all (almost) unicode emojis <-> plaincode
 ```
 
 ### checkLength
+
+Helper function to check if plaincode length (and thus your message length) is too long, and also show the user how close they are to exceed length of one-time pad.
+
 ```javaScript
 checkLength(plaincode, otp)
 // returns { plaincodeLength: plaincodeLength, otpLength: otpLength, tooLong: tooLong }
 ```
-Helper function to check if plaincode length (and thus your message length) is too long, and also show the user how close they are to exceed length of one-time pad.
 
 ### encryptPlaincode
+
+Encrypt the plaincode using a one-time-pad.
+
 ```javaScript
 encryptPlaincode(plaincode, otp)
 // Returns encrypted message as an array of numbers.
 ```
 
 ### decryptEncryptedMsg
+
+Decrypts the encrypted message with the same one-time-pad that it was encrypted with.
+
 ```javaScript
 decryptEncryptedMsg(encryptedMsg, otp)
 // Returns message as an array of characters.
 ```
 
 ## Maintenance
+
 If unicode emojis are updated (to i.e. v.16 from v.15)
 
 ```console
