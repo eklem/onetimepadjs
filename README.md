@@ -99,7 +99,7 @@ createOnetimePad(length)
 // Return a one-time pad of desired length.
 ```
 
-### checkLength
+### `checkLength()`
 
 Helper function to check if plaincode length (and thus your message length) is too long, and also show the user how close they are to exceed length of one-time pad.
 
@@ -108,7 +108,7 @@ checkLength(plaincode, otp)
 // returns { plaincodeLength: plaincodeLength, otpLength: otpLength, tooLong: tooLong }
 ```
 
-### encryptPlaincode
+### `encryptPlaincode()`
 
 Encrypt the plaincode using a one-time-pad.
 
@@ -117,7 +117,7 @@ encryptPlaincode(plaincode, otp)
 // Returns encrypted message as an array of numbers.
 ```
 
-### decryptEncryptedMsg
+### `decryptEncryptedMsg()`
 
 Decrypts the encrypted message with the same one-time-pad that it was encrypted with.
 
