@@ -105,6 +105,31 @@ Table + regular expression for different languages. Most used letters differs fr
 
 The table is used for converting letters, digits and emojis to plaincode and the other way around. There are two regular expressions for each language. One is to split up text strings containing text, numbers and emojis into single letters, digits and emojis. The other one is to split up a plaincode-string into an array of plaincodes so that you it can use the conversion table to get a plaincode-string to a text-string (text, numbers and emojis).
 
+##### General layout of conversion table
+
+* **00000 - 09999:**
+  Codebook, which consists of Unicode emojis
+* **1 - 5:**
+  5 most used letters for this language
+* **60 - 89:**
+  Other letters and symbols
+* **900 - 909:**
+  Numbers from 0-9
+* **91 -99:**
+  More symbols
+
+##### `textRegex` for English. It differs a little bit for each language.
+
+```javaScript
+eng.textRegex: '[a-z0-9\\s]|[,@#+-/.:!(=?)]'
+```
+
+##### `plaincodeRegex` for English, which for latin character based languages should be mostly the same.
+
+```javaScript
+eng.plaincodeRegex: '0\\d{4}|[1-5]|(90[0-9]{1})|(6[0-9]{1})|(7[0-9]{1})|(8[0-9]{1})|(9[1-9]{1})'
+```
+
 #### eng
 
 Conversion table and matching regular expression for the English language.
