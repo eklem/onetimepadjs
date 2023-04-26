@@ -135,9 +135,9 @@ The table is used for converting letters, digits and emojis to plaincode and the
 #### For each language three variables/arrays are available
 
 ```javaScript
-[language-code]].table
-[language-code]].textRegex
-[language-code]].plaincodeRegex
+[language-code].table
+[language-code].textRegex
+[language-code].plaincodeRegex
 codebook
 ```
 
@@ -161,7 +161,7 @@ If you need it we can helpo add more languages.
 * **91 -99:**
   More symbols
 
-#### `table`
+#### `[language-code].table`
 
 Example from `eng`. It differs from each language depending on the what's the most used letter, and how many letter the alphabet consists of.
 
@@ -221,7 +221,7 @@ table: [
   ]
 ```
 
-#### `textRegex`
+#### `[language-code].textRegex`
 
 Example from `eng`. It differs a little bit for each language.
 
@@ -229,7 +229,7 @@ Example from `eng`. It differs a little bit for each language.
 eng.textRegex: '[a-z0-9\\s]|[,@#+-/.:!(=?)]'
 ```
 
-#### `plaincodeRegex`
+#### `[language-code].plaincodeRegex`
 
 Example from `eng` which for latin character based languages should be mostly the same.
 
