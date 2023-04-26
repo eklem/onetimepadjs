@@ -12,10 +12,22 @@ Library of small snippets, tools and helper-functions for encrypting and decrypt
 
 Will be core functionality together with [nfc-json-transfer](https://github.com/eklem/nfc-json-transfer) for creating [otp-encryption-toy](https://github.com/eklem/otp-encryption-toy)
 
-## Example usage
-```sh
-npm install otp-encryption-decryption-lib
+## Getting the script in your environment
+
+### CJS - CommonJS
+
+```javaScript
+const { textToPlaincode, plaincodeToText, createOnetimePad, nob, codebook, checkLength, encryptPlaincode, decryptEncryptedMsg } = require('otp-encryption-decryption-lib')
 ```
+
+### ESM - Ecmascript Modules
+
+```javaScript
+import { textToPlaincode, plaincodeToText, createOnetimePad, nob, codebook, checkLength, encryptPlaincode, decryptEncryptedMsg } from 'otp-encryption-decryption-lib'
+```
+
+
+## Usage
 
 index.mjs:
 ```javaScript
@@ -27,7 +39,7 @@ console.log('\n\nInput:               ' + txt)
 
 // ### Text to plaincode
 const plaincodeConverted = textToPlaincode(txt, nob, codebook)
-console.log('Plaincode:           ' + plaincode)
+console.log('Plaincode:           ' + plaincodeConverted)
 
 // ### Creating a one-time pad
 const otp = createOnetimePad(96)
@@ -50,10 +62,13 @@ const textConverted = plaincodeToText(decryptedPlaincode.join(''), nob, codebook
 console.log('Decrypted msg:       ' + textConverted + '\n\n')
 ```
 
-Run it with:
+When doing ESM-version of the library, run it with:
+
 ```sh
 node --experimental-json-modules index.mjs
 ```
+
+
 
 ## API
 
