@@ -73,28 +73,31 @@ node --experimental-json-modules index.mjs
 ## API
 
 ### textToPlaincode
+
+Converts plaintext to plaincode. Plaincode is just numbers, and not encrypted. It's a step that uses a conversion table to change the text, numbers and emojis into numbers, which makes it possible to do one-time-pad encryption.
+
 ```javaScript
 textToPlaincode(text, conversionLanguage, codebook)
 // Returns plaincode string from text.
 ```
 
-Converts plaintext to plaincode. Plaincode is just numbers, and not encrypted. It's a step that uses a conversion table to change the text, numbers and emojis into numbers, which makes it possible to do one-time-pad encryption.
-
 ### plaincodeToText
+
+Converts plaincode back to plaintext.
+
 ```javaScript
 plaincodeToText(plaincode, conversionLanguage, codebook)
 // Returns text string from plaincode string.
 ```
 
-Converts plaincode back to plaintext.
-
 ### createOnetimePad
+
+The length of the should be equal to or larger than your plaincode. And it should only be used once. This ensures that it is impossible to break the code and read the encrypted message.
+
 ```javaScript
 createOnetimePad(length)
 // Return a one-time pad of desired length.
 ```
-
-The length of the should be equal to or larger than your plaincode. And it should only be used once. This ensures that it is impossible to break the code and read the encrypted message.
 
 ### Language conversion tables and regexes
 
