@@ -72,7 +72,7 @@ node --experimental-json-modules index.mjs
 
 ## API
 
-### textToPlaincode
+### `textToPlaincode()`
 
 Converts plaintext to plaincode. Plaincode is just numbers, and not encrypted. It's a step that uses a conversion table to change the text, numbers and emojis into numbers, which makes it possible to do one-time-pad encryption.
 
@@ -81,7 +81,7 @@ textToPlaincode(text, conversionLanguage, codebook)
 // Returns plaincode string from text.
 ```
 
-### plaincodeToText
+### `plaincodeToText()`
 
 Converts plaincode back to plaintext.
 
@@ -90,72 +90,13 @@ plaincodeToText(plaincode, conversionLanguage, codebook)
 // Returns text string from plaincode string.
 ```
 
-### createOnetimePad
+### `createOnetimePad()`
 
 The length of the should be equal to or larger than your plaincode. And it should only be used once. This ensures that it is impossible to break the code and read the encrypted message.
 
 ```javaScript
 createOnetimePad(length)
 // Return a one-time pad of desired length.
-```
-
-### Language conversion tables and regexes
-
-Table + regular expression for different languages. Most used letters differs from language to language. To be able to keep the plaincode short and thus needing shorter one-time-pads, the five most used letters are assigned to 0-5 in plaincode. Numbers starts with the digit `9` and consists of 3 digits.
-
-The table is used for converting letters, digits and emojis to plaincode and the other way around. There are two regular expressions for each language. One is to split up text strings containing text, numbers and emojis into single letters, digits and emojis. The other one is to split up a plaincode-string into an array of plaincodes so that you it can use the conversion table to get a plaincode-string to a text-string (text, numbers and emojis).
-
-##### General layout of conversion table
-
-* **00000 - 09999:**
-  Codebook, which consists of Unicode emojis
-* **1 - 5:**
-  5 most used letters for this language
-* **60 - 89:**
-  Other letters and symbols
-* **900 - 909:**
-  Numbers from 0-9
-* **91 -99:**
-  More symbols
-
-##### `textRegex` for English. It differs a little bit for each language.
-
-```javaScript
-eng.textRegex: '[a-z0-9\\s]|[,@#+-/.:!(=?)]'
-```
-
-##### `plaincodeRegex` for English, which for latin character based languages should be mostly the same.
-
-```javaScript
-eng.plaincodeRegex: '0\\d{4}|[1-5]|(90[0-9]{1})|(6[0-9]{1})|(7[0-9]{1})|(8[0-9]{1})|(9[1-9]{1})'
-```
-
-#### eng
-
-Conversion table and matching regular expression for the English language.
-
-```javaScript
-eng.textRegex // regex pattern for converting english text, numbers and punctuation into single characters
-eng.plaincodeRegex // regex pattern for converting english plaincode string into array of plaincodes
-eng.table // unicode <-> plaincode conversion table for english
-```
-
-#### nob
-
-Conversion table and matching regular expression for the Norwegian language.
-
-```javaScript
-nob.textRegex // regex pattern for converting norwegian text, numbers and punctuation into single characters
-nob.plaincodeRegex // regex pattern for converting norwegian plaincode string into array of plaincodes
-nob.table // unicode <-> plaincode conversion table for norwegian
-```
-
-### codebook
-
-Code book for emojis. Starts with a `0` in plaincode and then 4 digits. Traditionallhy it has been used to be able to write shorter messages, having a short code for longer, often used words. Here it is to be able to express all Unicode emojis.
-
-```javaScript
-codebook // conversion table for all (almost) unicode emojis <-> plaincode
 ```
 
 ### checkLength
@@ -185,6 +126,145 @@ decryptEncryptedMsg(encryptedMsg, otp)
 // Returns message as an array of characters.
 ```
 
+### Language conversion tables, regular expressions and codebook
+
+Each language contains variables for conversion tables and regular expressions. Most used letters differs from language to language. To be able to keep the plaincode short and thus needing shorter one-time-pads, the five most used letters are assigned to 0-5 in plaincode. Numbers starts with the digit `9` and consists of 3 digits.
+
+The table is used for converting letters, digits and emojis to plaincode and the other way around. There are two regular expressions for each language. One is to split up text strings containing text, numbers and emojis into single letters, digits and emojis. The other one is to split up a plaincode-string into an array of plaincodes so that you it can use the conversion table to get a plaincode-string to a text-string (text, numbers and emojis).
+
+#### For each language three variables/arrays are available
+
+```javaScript
+[language-code]].table
+[language-code]].textRegex
+[language-code]].plaincodeRegex
+codebook
+```
+
+#### Language codes
+
+* `eng` - English
+* `nob` - Norwegian
+
+If you need it we can helpo add more languages.
+
+#### Layout of conversion table
+
+* **00000 - 09999:**
+  Codebook, which consists of Unicode emojis
+* **1 - 5:**
+  5 most used letters for this language
+* **60 - 89:**
+  Other letters and symbols
+* **900 - 909:**
+  Numbers from 0-9
+* **91 -99:**
+  More symbols
+
+#### `table`
+
+Example from `eng`. It differs from each language depending on the what's the most used letter, and how many letter the alphabet consists of.
+
+```javaScript
+table: [
+    { unicode: 'a', plaincode: '1' },
+    { unicode: 'e', plaincode: '2' },
+    { unicode: 'i', plaincode: '3' },
+    { unicode: 'n', plaincode: '4' },
+    { unicode: 'o', plaincode: '5' },
+    { unicode: 't', plaincode: '60' },
+    { unicode: 'b', plaincode: '61' },
+    { unicode: 'c', plaincode: '62' },
+    { unicode: 'd', plaincode: '63' },
+    { unicode: 'f', plaincode: '64' },
+    { unicode: 'g', plaincode: '65' },
+    { unicode: 'h', plaincode: '66' },
+    { unicode: 'j', plaincode: '67' },
+    { unicode: 'k', plaincode: '68' },
+    { unicode: 'l', plaincode: '69' },
+    { unicode: 'm', plaincode: '70' },
+    { unicode: 'p', plaincode: '71' },
+    { unicode: 'q', plaincode: '72' },
+    { unicode: 'r', plaincode: '73' },
+    { unicode: 's', plaincode: '74' },
+    { unicode: 'u', plaincode: '75' },
+    { unicode: 'v', plaincode: '76' },
+    { unicode: 'w', plaincode: '77' },
+    { unicode: 'x', plaincode: '78' },
+    { unicode: 'y', plaincode: '79' },
+    { unicode: 'z', plaincode: '80' },
+    { unicode: ',', plaincode: '84' },
+    { unicode: '@', plaincode: '85' },
+    { unicode: '#', plaincode: '86' },
+    { unicode: '+', plaincode: '87' },
+    { unicode: '-', plaincode: '88' },
+    { unicode: '/', plaincode: '89' },
+    { unicode: '0', plaincode: '900' },
+    { unicode: '1', plaincode: '901' },
+    { unicode: '2', plaincode: '902' },
+    { unicode: '3', plaincode: '903' },
+    { unicode: '4', plaincode: '904' },
+    { unicode: '5', plaincode: '905' },
+    { unicode: '6', plaincode: '906' },
+    { unicode: '7', plaincode: '907' },
+    { unicode: '8', plaincode: '908' },
+    { unicode: '9', plaincode: '909' },
+    { unicode: '.', plaincode: '91' },
+    { unicode: ':', plaincode: '92' },
+    { unicode: '\'', plaincode: '93' },
+    { unicode: '!', plaincode: '94' },
+    { unicode: '(', plaincode: '95' },
+    { unicode: ')', plaincode: '96' },
+    { unicode: '=', plaincode: '97' },
+    { unicode: '?', plaincode: '98' },
+    { unicode: ' ', plaincode: '99' }
+  ]
+```
+
+#### `textRegex`
+
+Example from `eng`. It differs a little bit for each language.
+
+```javaScript
+eng.textRegex: '[a-z0-9\\s]|[,@#+-/.:!(=?)]'
+```
+
+#### `plaincodeRegex`
+
+Example from `eng` which for latin character based languages should be mostly the same.
+
+```javaScript
+eng.plaincodeRegex: '0\\d{4}|[1-5]|(90[0-9]{1})|(6[0-9]{1})|(7[0-9]{1})|(8[0-9]{1})|(9[1-9]{1})'
+```
+
+#### `codebook`
+
+#### codebook
+
+* **00000 - 09999:**
+  Unicode emojis
+
+Codebook for emojis. Not language specific. Starts with a `0` in plaincode and then 4 digits. Traditionallhy it has been used to be able to write shorter messages, having a short code for longer, often used words. Here it is to be able to express all Unicode emojis.
+
+Example of three first entries:
+
+```javaScript
+codebook: [
+  {
+    unicode: '😀',
+    plaincode: 00000
+  },
+  {
+    unicode: '😃',
+    plaincode: 00001
+  },
+  {
+    unicode: '😄',
+    plaincode: 00002
+  }
+]
+```
+
 ## Maintenance
 
 If unicode emojis are updated (to i.e. v.16 from v.15)
@@ -196,4 +276,6 @@ node ./fetch-emojis.mjs && node ./create-emoji-regex.mjs && node ./create-emoji-
 
 ## Possible issue
 
-Haven't found a unique way of numbering/addressing the unicode emojis that will work cross unicode emoji versions, so then stuff won't encrypt/decrypt properly if you use different versions of the library.
+* It's an untested toy. Don't bet your life on it. But it can be used to teach kids and minors about the importance of encryption. [Discussion about the library and one-time-pad encryption on Reddit](https://www.reddit.com/r/crypto/comments/uf4k2g/onetime_pad_encryption_what_are_the_downsides/).
+* Exchanging one-time-pads is a problem. May be tackled with [nfc-json-transfer](https://www.reddit.com/r/crypto/comments/uf4k2g/onetime_pad_encryption_what_are_the_downsides/).
+* I haven't found a unique way of numbering/addressing the unicode emojis that will work cross unicode emoji versions, so then stuff won't encrypt/decrypt properly if you use different versions of the library.
