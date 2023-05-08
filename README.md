@@ -78,7 +78,7 @@ Converts plaintext to plaincode. Plaincode is just numbers, and not encrypted. I
 
 ```javaScript
 textToPlaincode(text, conversionLanguage, codebook)
-// Returns plaincode string from text.
+// Returns plaincode string from a string of text.
 ```
 
 ### `plaincodeToText()`
@@ -96,7 +96,7 @@ The length of the should be equal to or larger than your plaincode. And it shoul
 
 ```javaScript
 createOnetimePad(length)
-// Return a one-time pad of desired length.
+// Returns a one-time pad of desired length, as a string of digits.
 ```
 
 ### `checkLength()`
@@ -105,7 +105,7 @@ Helper function to check if plaincode length (and thus your message length) is t
 
 ```javaScript
 checkLength(plaincode, otp)
-// returns { plaincodeLength: plaincodeLength, otpLength: otpLength, tooLong: tooLong }
+// Returns { plaincodeLength: plaincodeLength, otpLength: otpLength, tooLong: tooLong }
 ```
 
 ### `encryptPlaincode()`
@@ -114,7 +114,7 @@ Encrypt the plaincode using a one-time-pad.
 
 ```javaScript
 encryptPlaincode(plaincode, otp)
-// Returns encrypted message as an array of numbers.
+// Returns encrypted message as an string of digits. This is the encrypted message.
 ```
 
 ### `decryptEncryptedMsg()`
@@ -123,7 +123,7 @@ Decrypts the encrypted message with the same one-time-pad that it was encrypted 
 
 ```javaScript
 decryptEncryptedMsg(encryptedMsg, otp)
-// Returns message as an array of characters.
+// Returns message as a string of digits - The message in plainccode.
 ```
 
 ### Language conversion tables, regular expressions and codebook
@@ -138,7 +138,6 @@ The table is used for converting letters, digits and emojis to plaincode and the
 [language-code].table
 [language-code].textRegex
 [language-code].plaincodeRegex
-codebook
 ```
 
 #### Language codes
@@ -238,8 +237,6 @@ eng.plaincodeRegex: '0\\d{4}|[1-5]|(90[0-9]{1})|(6[0-9]{1})|(7[0-9]{1})|(8[0-9]{
 ```
 
 #### `codebook`
-
-#### codebook
 
 * **00000 - 09999:**
   Unicode emojis
