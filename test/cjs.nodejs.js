@@ -1,13 +1,13 @@
 const test = require('ava')
-const { textToPlaincode, plaincodeToText, createOnetimePad, nob, codebook, checkLength, encryptPlaincode, decryptEncryptedMsg } = require('../dist/otp-ed-lib.nodejs.cjs.js')
-const message = 'Hello 🏴󠁧󠁢󠁳󠁣󠁴󠁿👨‍👩‍👦‍👦🏳️‍🌈😀🇿🇼  world, 123:æøå! https://somesecreturl.com/ 🩷'
+const { textToPlaincode, plaincodeToText, createOnetimePad, eng, codebook, checkLength, encryptPlaincode, decryptEncryptedMsg } = require('../dist/otp-ed-lib.nodejs.cjs.js')
+const message = 'Hello 🏴󠁧󠁢󠁳󠁣󠁴󠁿👨‍👩‍👦‍👦🏳️‍🌈😀🇿🇼  world, 123! https://somesecreturl.com/ 🩷'
 
 test('Text to plaincode + tooLong: false', t => {
   t.plan(2)
-  const expected = 'hello 🏴󠁧󠁢󠁳󠁣󠁴󠁿👨‍👩‍👦‍👦🏳️‍🌈😀🇿🇼  world, 123:æøå! https://somesecreturl.com/ 🩷'
+  const expected = 'hello 🏴󠁧󠁢󠁳󠁣󠁴󠁿👨‍👩‍👦‍👦🏳️‍🌈😀🇿🇼  world, 123! https://somesecreturl.com/ 🩷'
   
   // ### Text to plaincode
-  const plaincodeConverted = textToPlaincode(message, nob, codebook)
+  const plaincodeConverted = textToPlaincode(message, eng, codebook)
   console.log('Plaincode:           ' + plaincodeConverted)
 
   // ### Creating a one-time pad
@@ -27,7 +27,7 @@ test('Text to plaincode + tooLong: false', t => {
   console.log('Decrypted plaincode: ' + decryptedPlaincode.join(''))
 
   // ### Plaincode to text - The message delivered!
-  const textConverted = plaincodeToText(decryptedPlaincode.join(''), nob, codebook)
+  const textConverted = plaincodeToText(decryptedPlaincode.join(''), eng, codebook)
   console.log('Decrypted message:   ' + textConverted + '\n\n')
   
   t.deepEqual(lengthObj.tooLong, false)
