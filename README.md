@@ -6,7 +6,14 @@
 [![tests](https://github.com/eklem/otp-encryption-decryption-lib/actions/workflows/tests.yml/badge.svg)](https://github.com/eklem/otp-encryption-decryption-lib/actions/workflows/tests.yml)
 [![MIT License](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](LICENSE)
 
-Library of helper-functions for encrypting and decrypting messages with OTPs - One-time pads.
+Library of helper-functions for encrypting and decrypting messages with OTPs - One-time pads. Funcions for:
+* Generating one-time-pads - encryption/decryption keys.
+* Converting plaintext to plaincode.
+* Converting plaincode to plaintext.
+* Encrypting plaincode text
+* Decrypting encrypoted text
+* Check length of message is too long for the encryption key.
+* Language conversion tables, regular expressions for plaintext <-> plaincode and codebook for emojis. 
 
 ![Example-code](https://github.com/eklem/otp-encryption-decryption-lib/blob/trunk/otp-library-03.png)
 
