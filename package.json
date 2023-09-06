@@ -14,7 +14,7 @@
     "url": "git+https://github.com/eklem/otp-encryption-decryption-lib.git"
   },
   "devDependencies": {
-    "batr": "^2.1.9",
+    "batr": "^2.1.10",
     "node-fetch": "^3.3.2",
     "words-n-numbers": "^9.1.1",
     "rgi-emoji-regex-pattern": "^1.3.1"
