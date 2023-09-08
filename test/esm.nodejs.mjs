@@ -5,6 +5,7 @@ const message = 'hello 🏴󠁧󠁢󠁳󠁣󠁴󠁿👨‍👩‍👦‍👦🏳
 test('Text to plaincode + tooLong: false', t => {
   t.plan(2)
   const expected = 'hello 🏴󠁧󠁢󠁳󠁣󠁴󠁿👨‍👩‍👦‍👦🏳️‍🌈😀🇿🇼  world, 123! https://somesecreturl.com/ 🩷'
+  console.log('Input:               ' + message)
   
   // ### Text to plaincode
   const plaincodeConverted = textToPlaincode(message, eng, codebook)
