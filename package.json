@@ -1,5 +1,5 @@
 {
-  "name": "otp-encryption-decryption-lib",
+  "name": "onetimepadjs",
   "version": "0.3.1",
   "description": "Library of helper-functions for encrypting and decrypting messages with OTPs - One-time pads.",
   "main": "./dist/otp-ed-lib.nodejs.cjs.js",
@@ -31,9 +31,9 @@
   "author": "Espen Klem",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/eklem/otp-encryption-decryption-lib/issues"
+    "url": "https://github.com/eklem/onetimepadjs/issues"
   },
-  "homepage": "https://github.com/eklem/otp-encryption-decryption-lib#readme",
+  "homepage": "https://github.com/eklem/onetimepadjs#readme",
   "directories": {
     "test": "test"
   }
