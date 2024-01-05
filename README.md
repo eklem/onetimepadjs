@@ -1,4 +1,4 @@
-# otp-encryption-decryption-lib
+# OneTimePadJS
 
 [![NPM version](http://img.shields.io/npm/v/otp-encryption-decryption-lib.svg?style=flat)](https://npmjs.org/package/otp-encryption-decryption-lib)
 [![NPM downloads](http://img.shields.io/npm/dm/otp-encryption-decryption-lib.svg?style=flat)](https://npmjs.org/package/otp-encryption-decryption-lib) 
