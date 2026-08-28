@@ -51,6 +51,6 @@
     "test": "test"
   },
   "dependencies": {
-    "run": "^2.0.0"
+    "run": "^2.0.1"
   }
 }
